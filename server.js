@@ -210,7 +210,13 @@ io.on('connection', async socket => {
     })
 })
 
-const PORT = 8080
+let PORT = 0
+if (process.argv[2] && !isNaN(process.argv[2])) {
+    puerto = process.argv[2]
+} else if (isNaN(process.argv[2])) {
+    console.log('No se ingresó un puerto válido, se usará el 8080')
+    PORT = 8080
+}
 
 const svr = server.listen(PORT, () => {
     console.log(`servidor escuchando en http://localhost:${PORT}`)
