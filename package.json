@@ -4,6 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "foreverfork": "forever start server.js",
+    "pm2cluster": "pm2 start server.js --name='Server2Cluster' --watch -i max",
+    "pm2fork": "pm2 start server.js --name='Server2Fork' --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
