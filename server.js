@@ -11,7 +11,7 @@ const productos = require('./api/productos')
 const Mensajes = require('./api/mensajes')
 const passport = require('passport')
 const bcrypt = require('bcrypt')
-const LocalStrategy = require('passport-local').Strategy
+const FacebookStrategy = require('passport-local').Strategy
 const User = require('./models/users')
 const { fork } = require('child_process')
 const numCPUs = require('os').cpus().length
@@ -48,13 +48,11 @@ passport.use(new FacebookStrategy({
 }))
 
 passport.serializeUser(function (user, done) {
-    
-    done(null, user);
+    done(null, user)
 })
 
 passport.deserializeUser(function (user, done) {
-    
-    done(null, user);
+    done(null, user)
 })
 
 app.get('/info', (req, res) => {
